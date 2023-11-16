@@ -2,14 +2,14 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import colorchooser
 from generate_arbo import generate_arbo
-from generate_event_php import generate_event_php
-from generate_event_editor_php import generate_event_editor_php
-from generate_event_displayer_php import generate_event_displayer_php
+from generate_backevent_php import generate_backevent_php
+from generate_backevent_editor_php import generate_backevent_editor_php
+from generate_backevent_displayer_php import generate_backevent_displayer_php
 from generate_bo_display_php import generate_bo_display_php
-from generate_upload_event_php import generate_upload_event_php
-from generate_edit_event_php import generate_edit_event_php
-from generate_delete_event_php import generate_delete_event_php
-from generate_uploadEvent_js import generate_uploadEvent_js
+from generate_upload_backevent_php import generate_upload_backevent_php
+from generate_edit_backevent_php import generate_edit_backevent_php
+from generate_delete_backevent_php import generate_delete_backevent_php
+from generate_uploadBackevent_js import generate_uploadBackevent_js
 from generate_script_js import generate_script_js
 from generate_style_css import generate_style_css
 from generate_venv import generate_venv
@@ -35,14 +35,14 @@ def generate_files():
     if all([directory_path, main_domain, full_body_tag, event_title, bg_color, primary_color, db_username, db_password]):
         # Generate tree path
         generate_arbo(directory_path)
-        generate_event_php(directory_path, main_domain, full_body_tag, event_title)
-        generate_event_editor_php(directory_path, main_domain, full_body_tag)
-        generate_event_displayer_php(directory_path, website)
+        generate_backevent_php(directory_path, main_domain, full_body_tag, event_title)
+        generate_backevent_editor_php(directory_path, main_domain, full_body_tag)
+        generate_backevent_displayer_php(directory_path, website)
         generate_bo_display_php(directory_path, website)
-        generate_upload_event_php(directory_path, website)
-        generate_edit_event_php(directory_path, website)
-        generate_delete_event_php(directory_path, website)
-        generate_uploadEvent_js(directory_path)
+        generate_upload_backevent_php(directory_path, website)
+        generate_edit_backevent_php(directory_path, website)
+        generate_delete_backevent_php(directory_path, website)
+        generate_uploadBackevent_js(directory_path)
         generate_script_js(directory_path)
         generate_style_css(directory_path, bg_color, primary_color)
         generate_venv(directory_path, website, db_username, db_password)
@@ -53,7 +53,7 @@ def generate_files():
         
         result_label.config(text="Event files have been generated.")
 
-        print("Event files well generated, don't forget to minify !")
+        print("Backevent files well generated, don't forget to minify !")
         print("Read readme.txt for implementation.\n")
 
         app.quit()
@@ -76,7 +76,7 @@ def open_color_picker2():
     color_entry2.insert(0, color)
 
 app = tk.Tk()
-app.title("DariusDev Event Generator")
+app.title("DariusDev Backevent Generator")
 
 directory_var = tk.StringVar()
 

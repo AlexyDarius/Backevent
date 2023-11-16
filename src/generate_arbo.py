@@ -2,7 +2,7 @@ import os
 
 def generate_arbo(directory_path):
     # Define the base directory path
-    base_directory = 'event'
+    base_directory = 'backevent'
 
     # List of subdirectories
     subdirectories = ['css', 'js', 'images', 'requires']

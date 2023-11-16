@@ -21,6 +21,6 @@ def generate_updateDisplayStatus_js(directory_path):
 }}
 '''
 
-    with open(f"{directory_path}/event/js/updateDisplayStatus.js", "w") as js_file:
+    with open(f"{directory_path}/backevent/js/updateDisplayStatus.js", "w") as js_file:
         js_file.write(js_code)
         print("updateDisplayStatus.js generated !")

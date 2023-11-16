@@ -4,7 +4,7 @@ def generate_script_js(directory_path):
     let deleteButtons = document.querySelectorAll('.delete-button');
     deleteButtons.forEach(function(button) {{
         button.addEventListener('click', function() {{
-            let eventId = button.getAttribute('data-event-id');
+            let eventId = button.getAttribute('data-backevent-id');
 
             // Ask for confirmation
             let confirmation = confirm('Voulez-vous vraiment supprimer cet événement ?');
@@ -14,7 +14,7 @@ def generate_script_js(directory_path):
                 xhr.onreadystatechange = function() {{
                     if (xhr.readyState === 4 && xhr.status === 200) {{
                         // Image deleted successfully, remove the image from the page
-                        let eventBox = document.getElementById('event-box-' + eventId);
+                        let eventBox = document.getElementById('backevent-box-' + eventId);
                         eventBox.remove();
                     }} else if (xhr.readyState === 4) {{
                         // Handle error if needed
@@ -22,9 +22,9 @@ def generate_script_js(directory_path):
                     }}
                 }};
 
-                xhr.open('POST', 'requires/delete_event.php', true);
+                xhr.open('POST', 'requires/delete_backevent.php', true);
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.send('event_id=' + eventId);
+                xhr.send('backevent_id=' + eventId);
             }} else {{
                 // User clicked "Cancel" in the confirmation dialog, do nothing
             }}
@@ -36,7 +36,7 @@ def generate_script_js(directory_path):
     
     editButtons.forEach(function(button) {{
         button.addEventListener('click', function() {{
-            const eventId = button.getAttribute('data-event-id');
+            const eventId = button.getAttribute('data-backevent-id');
             const editContainer = document.querySelector(`#edit-container-${{eventId}}`);
             const editedTitleInput = document.querySelector(`#edited-title-${{eventId}}`);
             const editedPlaceInput = document.querySelector(`#edited-place-${{eventId}}`);
@@ -58,7 +58,7 @@ def generate_script_js(directory_path):
             const previousLink = linkElement.getAttribute('href'); // Assuming the link is stored in the 'href' attribute
 
             // Remove prefixes from previous values
-            const cleanedPlace = previousPlace.startsWith("Location : ") ? previousPlace.slice("Location : ".length) : previousPlace;
+            const cleanedPlace = previousPlace.startsWith("Lieu : ") ? previousPlace.slice("Lieu : ".length) : previousPlace;
             const formattedPreviousDate = previousDate.replace("Date : ", "").replace(" ", "T");
 
             editedTitleInput.value = previousTitle;
@@ -105,7 +105,7 @@ def generate_script_js(directory_path):
 
                 // Prepare data for the AJAX request
                 const data = new FormData();
-                data.append('event_id', eventId);
+                data.append('backevent_id', eventId);
                 data.append('title', editedTitle);
                 data.append('place', editedPlace);
                 data.append('date', editedDate);
@@ -113,7 +113,7 @@ def generate_script_js(directory_path):
                 data.append('link', editedLink);
 
                 // Send a POST request to update_event.php
-                xhr.open('POST', 'requires/edit_event.php', true);
+                xhr.open('POST', 'requires/edit_backevent.php', true);
                 xhr.send(data);
             }});
 
@@ -125,8 +125,9 @@ def generate_script_js(directory_path):
         }});
     }});
 }});
+
 '''
 
-    with open(f"{directory_path}/event/js/script.js", "w") as js_file:
+    with open(f"{directory_path}/backevent/js/script.js", "w") as js_file:
         js_file.write(js_code)
         print("script.js generated !")

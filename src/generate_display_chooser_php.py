@@ -7,7 +7,7 @@ if ($conn->connect_error) {{
 }}
 
 // Retrieve image information from the database
-$sql = "SELECT id, title, date, place, display FROM {website}_event ORDER BY date DESC";
+$sql = "SELECT id, title, date, place, display FROM {website}_backevent ORDER BY date DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {{
@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {{
         $place = $row['place'];
         $display = $row['display'];
         
-        echo "<div id='event-display-" . $eventId . "' style='display: flex; align-items: center;'>";
+        echo "<div id='backevent-display-" . $eventId . "' style='display: flex; align-items: center;'>";
 
         // Text container (left-aligned)
         echo "<div>";
@@ -50,6 +50,6 @@ $conn->close();
 ?>
 '''
 
-    with open(f"{directory_path}/event/requires/display_chooser.php", "w") as php_file:
+    with open(f"{directory_path}/backevent/requires/display_chooser.php", "w") as php_file:
         php_file.write(php_code)
         print("display_chooser.php generated !")

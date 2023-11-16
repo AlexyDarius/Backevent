@@ -55,6 +55,6 @@ button {{
 
 '''
 
-    with open(f"{directory_path}/event/css/style.css", "w") as js_file:
+    with open(f"{directory_path}/backevent/css/style.css", "w") as js_file:
         js_file.write(css_code)
         print("style.css generated !")
