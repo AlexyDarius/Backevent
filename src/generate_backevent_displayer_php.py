@@ -7,7 +7,7 @@ if ($conn->connect_error) {{
 }}
 
 // Retrieve image information from the database
-$sql = "SELECT id, title, date, place, img_filename1, img_filename2, img_filename3, text, link FROM {website}_backevent WHERE display = 1 ORDER BY date DESC";
+$sql = "SELECT id, title, date, place, img_filename1, img_filename2, img_filename3, text, link FROM {website}_backevent ORDER BY date DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {{
