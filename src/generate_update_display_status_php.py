@@ -28,6 +28,6 @@ $conn->close();
 
 '''
 
-    with open(f"{directory_path}/event/requires/update_display_status.php", "w") as php_file:
+    with open(f"{directory_path}/backevent/requires/update_display_status.php", "w") as php_file:
         php_file.write(php_code)
         print("update_display_status.php generated !")
